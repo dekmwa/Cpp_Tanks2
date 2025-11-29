@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/Images/bullet_sprite.png</file>
+        <file>Resources/Images/delete.png</file>
+        <file>Resources/Images/rotate.png</file>
+        <file>Resources/Images/tank.png</file>
+        <file>Resources/Images/wall.png</file>
+    </qresource>
+</RCC>
