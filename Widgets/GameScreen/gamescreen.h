@@ -34,7 +34,7 @@ private:
     void updateWindowSize();
 
 private slots:
-    void onGameStateChanged();
+    void onGameStateChanged(NewFrameObjects newFrame);
     void onHighlightCell(int x, int y);
 
 signals:

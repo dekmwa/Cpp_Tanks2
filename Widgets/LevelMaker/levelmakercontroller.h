@@ -2,6 +2,7 @@
 #define LEVELMAKERCONTROLLER_H
 
 #include "../../Utils/GameStorage/gamestorage.h"
+#include "../../src/NewFrameObjects.h"
 
 #include <QObject>
 
@@ -19,11 +20,13 @@ public:
 
     GameStorage* getGameStorage() const { return gameStorage; }
 
+    void makeNewFrame();
+
 private:
     GameStorage* gameStorage;
 
 signals:
-    void gameStorageChanged();
+    void gameStorageChanged(NewFrameObjects newFrame);
 };
 
 #endif // LEVELMAKERCONTROLLER_H

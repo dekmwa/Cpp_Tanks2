@@ -9,7 +9,7 @@ LevelMaker::LevelMaker(QWidget *parent, int widthCellsCnt, int heightCellsCnt)
     gameStorage(new GameStorage()),
     imagesManager(new ImagesManager()),
     jsonManager(new JsonManager()),
-    gameField(new GameField(this, gameStorage, widthCellsCnt, heightCellsCnt, *imagesManager)),
+    gameField(new GameField(this, widthCellsCnt, heightCellsCnt, *imagesManager)),
     objectPanel(new ObjectPanel(this, *imagesManager)),
     tankSelectedFlag(false), wallSelectedFlag(false), deleteSelectedFlag(false), rotateSelectedFlag(false)
 {
@@ -30,6 +30,8 @@ LevelMaker::LevelMaker(QWidget *parent, int widthCellsCnt, int heightCellsCnt)
 
     connect(gameField, &GameField::cellClicked, this, &LevelMaker::onCellClicked);
     connect(levelMakerController, &LevelMakerController::gameStorageChanged, this, &LevelMaker::onGameStateChanged);
+
+    levelMakerController->makeNewFrame();
 }
 
 void LevelMaker::onCellClicked(int row, int col)
@@ -45,9 +47,9 @@ void LevelMaker::onCellClicked(int row, int col)
     }
 }
 
-void LevelMaker::onGameStateChanged()
+void LevelMaker::onGameStateChanged(NewFrameObjects newFrame)
 {
-    gameField->updateImages();
+    gameField->updateImages(newFrame);
 }
 
 void LevelMaker::savePreset()

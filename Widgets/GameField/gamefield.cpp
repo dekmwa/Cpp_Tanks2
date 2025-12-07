@@ -1,8 +1,8 @@
 #include "gamefield.h"
 
 
-GameField::GameField(QWidget *parent, GameStorage *gs, int widthCellsCnt, int heightCellsCnt, ImagesManager &imgManager)
-    : QWidget(parent), gameStorage(gs), widthCellsCount(widthCellsCnt), heightCellsCount(heightCellsCnt), cellSize(50), imagesManager(&imgManager)
+GameField::GameField(QWidget *parent, int widthCellsCnt, int heightCellsCnt, ImagesManager &imgManager)
+    : QWidget(parent), widthCellsCount(widthCellsCnt), heightCellsCount(heightCellsCnt), cellSize(50), imagesManager(&imgManager)
 {
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
@@ -37,12 +37,15 @@ GameField::GameField(QWidget *parent, GameStorage *gs, int widthCellsCnt, int he
         }
     }
 
-    updateImages();
+    updateImages(NewFrameObjects());
     lastHighlightCell = new LastHighlightCell();
 }
 
-void GameField::updateImages()
+void GameField::updateImages(NewFrameObjects newFrame)
 {
+    std::vector<Tank> tanks = newFrame.tanks;
+    std::vector<Wall> walls = newFrame.walls;
+
     for (int i = 0; i < heightCellsCount; i++) {
         for (int j = 0; j < widthCellsCount; j++) {
             fieldCells[i][j]->setIcon(QIcon());
@@ -56,15 +59,15 @@ void GameField::updateImages()
         }
     }
 
-    for (int i = 0; i < gameStorage->getTanksCount(); i++) {
-        Tank *currentTank = gameStorage->getTankByIndex(i);
-        int row = currentTank->getCoordinateY();
-        int coll = currentTank->getCoordinateX();
+    for (int i = 0; i < tanks.size(); i++) {
+        Tank currentTank = tanks[i];
+        int row = currentTank.getCoordinateY();
+        int coll = currentTank.getCoordinateX();
         QPixmap tankImg = imagesManager->getTankScaledImage(cellSize);
         QTransform transform;
         int angle = 0;
 
-        switch(currentTank->getDirection()) {
+        switch(currentTank.getDirection()) {
         case Direction::UP: angle = 0; break;
         case Direction::RIGHT: angle = 90; break;
         case Direction::DOWN: angle = 180; break;
@@ -77,16 +80,16 @@ void GameField::updateImages()
         fieldCells[row][coll]->setIconSize(QSize(cellSize, cellSize));
     }
 
-    for (int i = 0; i < gameStorage->getWallsCount(); i++) {
-        int row = gameStorage->getWallByIndex(i)->getCoordinateY();
-        int coll = gameStorage->getWallByIndex(i)->getCoordinateX();
+    for (int i = 0; i < walls.size(); i++) {
+        int row = walls[i].getCoordinateY();
+        int coll = walls[i].getCoordinateX();
         QPixmap wallImg = imagesManager->getWallScaledImage(cellSize);
 
         fieldCells[row][coll]->setIcon(QIcon(wallImg));
         fieldCells[row][coll]->setIconSize(QSize(cellSize, cellSize));
     }
 
-    //gameStorage->printStorageInfo();
+    lastFrame = newFrame;
 }
 
 void GameField::resizePlus()
@@ -98,7 +101,7 @@ void GameField::resizePlus()
             fieldCells[i][j]->setFixedSize(cellSize, cellSize);
         }
     }
-    updateImages();
+    updateImages(lastFrame);
 }
 
 void GameField::resizeMinus()
@@ -110,7 +113,7 @@ void GameField::resizeMinus()
             fieldCells[i][j]->setFixedSize(cellSize, cellSize);
         }
     }
-    updateImages();
+    updateImages(lastFrame);
 }
 
 void GameField::highlightCell(int x, int y)
@@ -198,7 +201,6 @@ GameField::~GameField() {
     }
 
     imagesManager = nullptr;
-    gameStorage = nullptr;
 
     //qDebug() << "=== Destructor called: " << this->metaObject()->className() << "===";
 }

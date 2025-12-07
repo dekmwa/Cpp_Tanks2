@@ -3,7 +3,7 @@
 
 GameScreen::GameScreen(QWidget *parent, GameStorage *gs, int widthCount, int heightCount) : QWidget(parent),
     mainLay(new QHBoxLayout(this)), imagesManager(new ImagesManager()),
-    gameField(new GameField(this, gs, widthCount, heightCount, *imagesManager)), actionPanel(new ActionPanel(this))
+    gameField(new GameField(this, widthCount, heightCount, *imagesManager)), actionPanel(new ActionPanel(this))
 {
     gameController = new GameController(gs, widthCount, heightCount, this);
 
@@ -21,14 +21,15 @@ GameScreen::GameScreen(QWidget *parent, GameStorage *gs, int widthCount, int hei
     connect(gameController, &GameController::gameStorageChanged, this, &GameScreen::onGameStateChanged);
     connect(gameController, &GameController::highlightCell, this, &GameScreen::onHighlightCell);
 
-    emit highlightCell(gs->getTankByIndex(0)->getCoordinateX(), gs->getTankByIndex(0)->getCoordinateY());
-
     connect(gameController, &GameController::drawShot, gameField, &GameField::drawBulletCell);
+
+    gameController->makeNewFrame();
+    onHighlightCell(gs->getTankByIndex(0)->getCoordinateX(), gs->getTankByIndex(0)->getCoordinateY());
 }
 
-void GameScreen::onGameStateChanged()
+void GameScreen::onGameStateChanged(NewFrameObjects newFrame)
 {
-    gameField->updateImages();
+    gameField->updateImages(newFrame);
 }
 
 void GameScreen::onHighlightCell(int x, int y)

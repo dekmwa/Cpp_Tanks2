@@ -42,7 +42,7 @@ private:
 
 private slots:
     void onCellClicked(int row, int col);
-    void onGameStateChanged();
+    void onGameStateChanged(NewFrameObjects newFrame);
 
 public slots:
     void resizePlus();

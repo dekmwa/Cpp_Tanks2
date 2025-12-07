@@ -3,8 +3,10 @@
 
 #include "../../Utils/GameStorage/gamestorage.h"
 #include "../ActionPanel/actionpanel.h"
+#include "../../src/NewFrameObjects.h"
 
 #include <QObject>
+
 
 class GameController : public QObject
 {
@@ -15,6 +17,7 @@ public:
     ~GameController();
 
     void processAction(Action action);
+    void makeNewFrame();
 
     int getCurrentTankIndex() const { return m_currentTankIndex; }
     GameStorage* getGameStorage() const { return gameStorage; }
@@ -33,7 +36,7 @@ private:
     void changeIndexes();
 
 signals:
-    void gameStorageChanged();
+    void gameStorageChanged(NewFrameObjects newFrame);
     void highlightCell(int x, int y);
     void drawShot(int x, int y, Direction direction);
 };

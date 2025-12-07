@@ -52,7 +52,7 @@ void Game::InitializeGameScreen(QString filepath)
         return;
     }
 
-    if (gameScreen) {
+    if (gameScreen == nullptr) {
         stackedWidget->removeWidget(gameScreen);
         delete gameScreen;
         gameScreen = nullptr;
@@ -69,7 +69,7 @@ void Game::InitializeGameScreen(QString filepath)
 
 void Game::initializeLevelMaker(int widthCount, int heightCount)
 {
-    if (levelMaker) {
+    if (levelMaker == nullptr) {
         stackedWidget->removeWidget(levelMaker);
         delete levelMaker;
         levelMaker = nullptr;

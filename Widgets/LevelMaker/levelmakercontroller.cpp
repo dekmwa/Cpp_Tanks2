@@ -9,20 +9,20 @@ void LevelMakerController::placeTank(int col, int row)
 {
     gameStorage->deleteExistObjectOnCoordinates(row, col);
     gameStorage->pushTank(new Tank(row, col, Direction::UP));
-    emit gameStorageChanged();
+    makeNewFrame();
 }
 
 void LevelMakerController::placeWall(int col, int row)
 {
     gameStorage->deleteExistObjectOnCoordinates(row, col);
     gameStorage->pushWall(new Wall(row, col));
-    emit gameStorageChanged();
+    makeNewFrame();
 }
 
 void LevelMakerController::deleteObject(int col, int row)
 {
     gameStorage->deleteExistObjectOnCoordinates(row, col);
-    emit gameStorageChanged();
+    makeNewFrame();
 }
 
 void LevelMakerController::rotateTank(int col, int row)
@@ -32,6 +32,29 @@ void LevelMakerController::rotateTank(int col, int row)
         int index = gameStorage->getTankIndexByCoordinates(row, col);
         Tank *tank = gameStorage->getTankByIndex(index);
         tank->turnRight();
-        emit gameStorageChanged();
+        makeNewFrame();
     }
+}
+
+void LevelMakerController::makeNewFrame()
+{
+    NewFrameObjects newFrame;
+
+    const auto& tankPointers = gameStorage->getTanksVector();
+    newFrame.tanks.reserve(tankPointers.size());
+    for (const Tank* tankPtr : tankPointers) {
+        if (tankPtr) {
+            newFrame.tanks.push_back(*tankPtr);
+        }
+    }
+
+    const auto& wallPointers = gameStorage->getWallsVector();
+    newFrame.walls.reserve(wallPointers.size());
+    for (const Wall* wallPtr : wallPointers) {
+        if (wallPtr) {
+            newFrame.walls.push_back(*wallPtr);
+        }
+    }
+
+    emit gameStorageChanged(newFrame);
 }

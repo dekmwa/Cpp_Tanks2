@@ -20,13 +20,36 @@ void GameController::processAction(Action action)
     case Action::SHOT: break;
     }
 
-    emit gameStorageChanged();
+    makeNewFrame();
 
     if (action == Action::SHOT)
         shot();
 
     changeIndexes();
     emit highlightCell(gameStorage->getTankByIndex(m_currentTankIndex)->getCoordinateX(), gameStorage->getTankByIndex(m_currentTankIndex)->getCoordinateY());
+}
+
+void GameController::makeNewFrame()
+{
+    NewFrameObjects newFrame;
+
+    const auto& tankPointers = gameStorage->getTanksVector();
+    newFrame.tanks.reserve(tankPointers.size());
+    for (const Tank* tankPtr : tankPointers) {
+        if (tankPtr) {
+            newFrame.tanks.push_back(*tankPtr);
+        }
+    }
+
+    const auto& wallPointers = gameStorage->getWallsVector();
+    newFrame.walls.reserve(wallPointers.size());
+    for (const Wall* wallPtr : wallPointers) {
+        if (wallPtr) {
+            newFrame.walls.push_back(*wallPtr);
+        }
+    }
+
+    emit gameStorageChanged(newFrame);
 }
 
 void GameController::shot()
