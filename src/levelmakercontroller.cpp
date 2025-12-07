@@ -1,4 +1,4 @@
-#include "./levelmakercontroller.h"
+#include "levelmakercontroller.h"
 
 LevelMakerController::LevelMakerController(GameStorage* storage, QObject* parent)
     : QObject(parent), gameStorage(storage)

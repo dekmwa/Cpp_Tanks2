@@ -1,9 +1,9 @@
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 
-#include "../../Utils/GameStorage/gamestorage.h"
-#include "../ActionPanel/actionpanel.h"
-#include "../../src/NewFrameObjects.h"
+#include "gamestorage.h"
+#include "actionpanel.h"
+#include "NewFrameObjects.h"
 
 #include <QObject>
 

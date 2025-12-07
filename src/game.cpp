@@ -1,5 +1,5 @@
 #include "game.h"
-#include "../Utils/JsonManager/jsonmanager.h"
+#include "jsonmanager.h"
 
 #include <QDebug>
 #include <QMessageBox>

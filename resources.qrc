@@ -1,9 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>Resources/Images/bullet_sprite.png</file>
-        <file>Resources/Images/delete.png</file>
-        <file>Resources/Images/rotate.png</file>
-        <file>Resources/Images/tank.png</file>
-        <file>Resources/Images/wall.png</file>
+        <file>Images/bullet_sprite.png</file>
+        <file>Images/delete.png</file>
+        <file>Images/rotate.png</file>
+        <file>Images/tank.png</file>
+        <file>Images/wall.png</file>
     </qresource>
 </RCC>

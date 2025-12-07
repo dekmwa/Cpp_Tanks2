@@ -1,6 +1,6 @@
 #include "jsonmanager.h"
-#include "../../Objects/Tank/tank.h"
-#include "../../Objects/Wall/wall.h"
+#include "tank.h"
+#include "wall.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>

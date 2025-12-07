@@ -13,24 +13,39 @@ qt_add_executable(Tanks2
 
     ${QRC_FILES}
 
-    Game/game.h Game/game.cpp
-    Widgets/MainMenu/mainmenu.h Widgets/MainMenu/mainmenu.cpp
-    Widgets/FieldSizeSelector/fieldsizeselector.h Widgets/FieldSizeSelector/fieldsizeselector.cpp
-    Widgets/GameField/gamefield.h Widgets/GameField/gamefield.cpp
-    Widgets/LevelMaker/levelmaker.h Widgets/LevelMaker/levelmaker.cpp
-    Widgets/ObjectPanel/objectpanel.h Widgets/ObjectPanel/objectpanel.cpp
-    Widgets/GameScreen/gamescreen.h Widgets/GameScreen/gamescreen.cpp
-    Widgets/GameScreen/gamescreencontroller.h Widgets/GameScreen/gamescreencontroller.cpp
-    Widgets/ActionPanel/actionpanel.h Widgets/ActionPanel/actionpanel.cpp
-    Widgets/LevelSelector/levelselector.h Widgets/LevelSelector/levelselector.cpp
-
-    Utils/GameStorage/gamestorage.h Utils/GameStorage/gamestorage.cpp
-    Utils/ImagesManager/imagesmanager.h Utils/ImagesManager/imagesmanager.cpp
-    Utils/JsonManager/jsonmanager.h Utils/JsonManager/jsonmanager.cpp
-
-    Objects/Wall/wall.h Objects/Wall/wall.cpp
-    Objects/Tank/tank.h Objects/Tank/tank.cpp
-    Widgets/LevelMaker/levelmakercontroller.h Widgets/LevelMaker/levelmakercontroller.cpp
+    src/game.h
+    src/game.cpp
+    src/mainmenu.h
+    src/mainmenu.cpp
+    src/fieldsizeselector.h
+    src/fieldsizeselector.cpp
+    src/gamefield.h
+    src/gamefield.cpp
+    src/levelmaker.h
+    src/levelmaker.cpp
+    src/objectpanel.h
+    src/objectpanel.cpp
+    src/gamescreen.h
+    src/gamescreen.cpp
+    src/gamescreencontroller.h
+    src/gamescreencontroller.cpp
+    src/actionpanel.h
+    src/actionpanel.cpp
+    src/levelselector.h
+    src/levelselector.cpp
+    src/levelmakercontroller.h
+    src/levelmakercontroller.cpp
+    src/NewFrameObjects.h
+    src/gamestorage.h
+    src/gamestorage.cpp
+    src/imagesmanager.h
+    src/imagesmanager.cpp
+    src/jsonmanager.h
+    src/jsonmanager.cpp
+    src/tank.h
+    src/tank.cpp
+    src/wall.h
+    src/wall.cpp
 )
 
 target_link_libraries(Tanks2

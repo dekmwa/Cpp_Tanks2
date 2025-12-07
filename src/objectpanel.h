@@ -1,7 +1,7 @@
 #ifndef OBJECTPANEL_H
 #define OBJECTPANEL_H
 
-#include "../../Utils/ImagesManager/imagesmanager.h"
+#include "imagesmanager.h"
 
 #include <QWidget>
 #include <QLabel>

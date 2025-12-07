@@ -1,7 +1,7 @@
 #include "gametest.h"
-#include "../../Utils/JsonManager/jsonmanager.h"
-#include "../../Widgets/GameScreen/gamescreencontroller.h"
-#include "../../Widgets/LevelMaker/levelmakercontroller.h"
+#include "../../src/jsonmanager.h"
+#include "../../src/gamescreencontroller.h"
+#include "../../src/levelmakercontroller.h"
 
 #include <QTest>
 #include <QSignalSpy>

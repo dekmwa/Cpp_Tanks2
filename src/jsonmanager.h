@@ -1,7 +1,7 @@
 #ifndef JSONMANAGER_H
 #define JSONMANAGER_H
 
-#include "../GameStorage/gamestorage.h"
+#include "gamestorage.h"
 
 #include <QString>
 

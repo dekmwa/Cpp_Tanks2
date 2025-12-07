@@ -1,12 +1,12 @@
 #ifndef LEVELMAKER_H
 #define LEVELMAKER_H
 
-#include "../../Utils/GameStorage/gamestorage.h"
-#include "./levelmakercontroller.h"
-#include "../GameField/gamefield.h"
-#include "../ObjectPanel/objectpanel.h"
-#include "../../Utils/ImagesManager/imagesmanager.h"
-#include "../../Utils/JsonManager/jsonmanager.h"
+#include "gamestorage.h"
+#include "levelmakercontroller.h"
+#include "gamefield.h"
+#include "objectpanel.h"
+#include "imagesmanager.h"
+#include "jsonmanager.h"
 
 #include <QWidget>
 #include <QHBoxLayout>

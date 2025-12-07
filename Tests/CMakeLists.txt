@@ -12,13 +12,13 @@ add_executable(GameTests
 target_include_directories(GameTests PRIVATE ${CMAKE_SOURCE_DIR})
 
 target_sources(GameTests PRIVATE
-    ${CMAKE_SOURCE_DIR}/Utils/JsonManager/jsonmanager.cpp
-    ${CMAKE_SOURCE_DIR}/Utils/GameStorage/gamestorage.cpp
-    ${CMAKE_SOURCE_DIR}/Widgets/GameScreen/gamescreencontroller.cpp
-    ${CMAKE_SOURCE_DIR}/Widgets/LevelMaker/levelmakercontroller.cpp
-    ${CMAKE_SOURCE_DIR}/Objects/Tank/tank.cpp
-    ${CMAKE_SOURCE_DIR}/Objects/Wall/wall.cpp
-    ${CMAKE_SOURCE_DIR}/Utils/ImagesManager/imagesmanager.cpp
+    ${CMAKE_SOURCE_DIR}/src/jsonmanager.cpp
+    ${CMAKE_SOURCE_DIR}/src/gamestorage.cpp
+    ${CMAKE_SOURCE_DIR}/src/gamescreencontroller.cpp
+    ${CMAKE_SOURCE_DIR}/src/levelmakercontroller.cpp
+    ${CMAKE_SOURCE_DIR}/src/tank.cpp
+    ${CMAKE_SOURCE_DIR}/src/wall.cpp
+    ${CMAKE_SOURCE_DIR}/src/imagesmanager.cpp
 )
 
 target_link_libraries(GameTests

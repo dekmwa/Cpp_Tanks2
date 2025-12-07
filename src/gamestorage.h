@@ -1,8 +1,8 @@
 #ifndef GAMESTORAGE_H
 #define GAMESTORAGE_H
 
-#include "../../Objects/Tank/tank.h"
-#include "../../Objects/Wall/wall.h"
+#include "tank.h"
+#include "wall.h"
 #include <vector>
 
 class GameStorage

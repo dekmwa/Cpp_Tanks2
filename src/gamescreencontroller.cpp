@@ -1,4 +1,4 @@
-#include "./gamescreencontroller.h"
+#include "gamescreencontroller.h"
 #include <QDebug>
 
 GameController::GameController(GameStorage *gs, int widthCount, int heightCount, QObject* parent)

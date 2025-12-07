@@ -1,11 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "../Widgets/MainMenu/mainmenu.h"
-#include "../Widgets/FieldSizeSelector/fieldsizeselector.h"
-#include "../Widgets/LevelSelector/levelselector.h"
-#include "../Widgets/LevelMaker/levelmaker.h"
-#include "../Widgets/GameScreen/gamescreen.h"
+#include "mainmenu.h"
+#include "fieldsizeselector.h"
+#include "levelselector.h"
+#include "levelmaker.h"
+#include "gamescreen.h"
 
 #include <QWidget>
 #include <QStackedWidget>

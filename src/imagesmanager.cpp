@@ -10,31 +10,31 @@ ImagesManager::ImagesManager()
 
 void ImagesManager::loadImages()
 {
-    tankOriginalImage = QPixmap(":/Resources/Images/tank.png");
+    tankOriginalImage = QPixmap(":/Images/tank.png");
     if (tankOriginalImage.isNull())
     {
         qWarning() << "loadImages: Не удалось загрузить изображение танка";
     }
 
-    wallOriginalImage = QPixmap(":/Resources/Images/wall.png");
+    wallOriginalImage = QPixmap(":/Images/wall.png");
     if (wallOriginalImage.isNull())
     {
         qWarning() << "loadImages: Не удалось загрузить изображение стены";
     }
 
-    deleteOriginalImage = QPixmap(":/Resources/Images/delete.png");
+    deleteOriginalImage = QPixmap(":/Images/delete.png");
     if (deleteOriginalImage.isNull())
     {
         qWarning() << "loadImages: Не удалось загрузить изображение delete.png";
     }
 
-    rotateOriginalImage = QPixmap(":/Resources/Images/rotate.png");
+    rotateOriginalImage = QPixmap(":/Images/rotate.png");
     if (rotateOriginalImage.isNull())
     {
         qWarning() << "loadImages: Не удалось загрузить изображение rotate.png";
     }
 
-    bulletOriginalImage = QPixmap(":/Resources/Images/bullet_sprite.png");
+    bulletOriginalImage = QPixmap(":/Images/bullet_sprite.png");
     if (bulletOriginalImage.isNull())
     {
         qWarning() << "loadImages: Не удалось загрузить изображение bullet_sprite.png";

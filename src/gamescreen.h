@@ -1,11 +1,11 @@
 #ifndef GAMESCREEN_H
 #define GAMESCREEN_H
 
-#include "../../Utils/GameStorage/gamestorage.h"
-#include "../../Utils/ImagesManager/imagesmanager.h"
-#include "../../Widgets/GameScreen/gamescreencontroller.h"
-#include "../GameField/gamefield.h"
-#include "../ActionPanel/actionpanel.h"
+#include "gamestorage.h"
+#include "imagesmanager.h"
+#include "gamescreencontroller.h"
+#include "gamefield.h"
+#include "actionpanel.h"
 
 #include <QWidget>
 #include <QHBoxLayout>

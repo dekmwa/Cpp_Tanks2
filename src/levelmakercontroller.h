@@ -1,8 +1,8 @@
 #ifndef LEVELMAKERCONTROLLER_H
 #define LEVELMAKERCONTROLLER_H
 
-#include "../../Utils/GameStorage/gamestorage.h"
-#include "../../src/NewFrameObjects.h"
+#include "gamestorage.h"
+#include "NewFrameObjects.h"
 
 #include <QObject>
 

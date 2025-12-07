@@ -2,8 +2,8 @@
 #ifndef GAMEFIELD_H
 #define GAMEFIELD_H
 
-#include "../../Utils/ImagesManager/imagesmanager.h"
-#include "../../src/NewFrameObjects.h"
+#include "imagesmanager.h"
+#include "NewFrameObjects.h"
 
 #include <QWidget>
 #include <QLabel>
